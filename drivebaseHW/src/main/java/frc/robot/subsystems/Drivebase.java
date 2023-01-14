@@ -18,16 +18,16 @@ public class Drivebase extends SubsystemBase {
   public Drivebase() {}
 
   //create motor objects
-  MotorController m_leftFrontMotor = new CANSparkMax(1, MotorType.kBrushless);
-  MotorController m_leftMiddleMotor = new CANSparkMax(2, MotorType.kBrushless);
-  MotorController m_leftBackMotor = new CANSparkMax(3, MotorType.kBrushless);
-  MotorController m_rightFrontMotor = new CANSparkMax(4, MotorType.kBrushless);
-  MotorController m_rightMiddleMotor = new CANSparkMax(5, MotorType.kBrushless);
-  MotorController m_rightBackMotor = new CANSparkMax(6, MotorType.kBrushless);
+  MotorController m_leftSlave = new CANSparkMax(1, MotorType.kBrushless);
+  MotorController m_leftMiddleMaster = new CANSparkMax(2, MotorType.kBrushless);
+  MotorController m_leftBackSlave = new CANSparkMax(3, MotorType.kBrushless);
+  MotorController m_rightFrontSlave = new CANSparkMax(4, MotorType.kBrushless);
+  MotorController m_rightMiddleMaster = new CANSparkMax(5, MotorType.kBrushless);
+  MotorController m_rightBackSlave = new CANSparkMax(6, MotorType.kBrushless);
 
   //group of motor objects
-  MotorControllerGroup m_leftGroup = new MotorControllerGroup(m_leftFrontMotor, m_leftMiddleMotor, m_leftMiddleMotor);
-  MotorControllerGroup m_rightGroup = new MotorControllerGroup(m_rightFrontMotor, m_rightMiddleMotor, m_rightMiddleMotor);
+  MotorControllerGroup m_leftGroup = new MotorControllerGroup(m_leftFrontSlave, m_leftMiddleMaster, m_leftMiddleSlave);
+  MotorControllerGroup m_rightGroup = new MotorControllerGroup(m_rightFrontSlave, m_rightMiddleMaster, m_rightMiddleSlave);
   
   //invert so robot so left and right motors go same direction go forward
   m_leftGroup.setInverted(true);
